@@ -1,0 +1,20 @@
+{
+  "name": "mst",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "keywords": [],
+  "author": "glebanya13",
+  "license": "ISC",
+  "dependencies": {
+    "path": "^0.12.7",
+    "pino": "^9.3.2",
+    "pino-pretty": "^11.2.2",
+    "sharp": "^0.33.4",
+    "tesseract.js": "^5.1.0",
+    "url": "^0.11.4"
+  }
+}
