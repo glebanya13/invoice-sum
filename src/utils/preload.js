@@ -1,20 +1,20 @@
 import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
+import path, { dirname as pathDirname, resolve } from 'path';
 import sharp from 'sharp';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const filename = fileURLToPath(import.meta.url);
+const dirname = pathDirname(filename);
 
 export const getPath = (relativePath) => {
-    return resolve(__dirname, '../', relativePath);
+    const ROOT_PATH = path.join(dirname, '../');
+    return resolve(ROOT_PATH, relativePath);
 };
 
 export const preload = async (input, output) => {
-    await sharp(input)
+    return await sharp(input)
     .resize(1200)
     .grayscale()
     .normalize()
     .sharpen()
-    .toFile(output);
+    .toBuffer();
 };
-

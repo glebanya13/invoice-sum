@@ -4,10 +4,9 @@ import { logger } from './utils/logger.js';
 import { keywords } from './keywords.js';
 
 const input = getPath('./assets/input.jpg');
-const output = getPath('./assets/output.jpg');
 
 const run = async (input) => {
-    await preload(input, output);
+    const output = await preload(input);
 
     try {
         const { data: { text } } = await Tesseract.recognize(output, 'rus', {
